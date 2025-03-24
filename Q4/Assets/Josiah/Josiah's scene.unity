@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 576013135}
   - component: {fileID: 576013134}
   - component: {fileID: 576013142}
+  - component: {fileID: 576013143}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -358,6 +359,29 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   maskColor: {r: 0.6, g: 0.30588236, b: 1, a: 1}
+  maskAnimations: {fileID: 0}
+--- !u!95 &576013143
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576013133}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0d40392f34da1a24fb99ae3741c826e6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &679206546
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,7 +520,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
