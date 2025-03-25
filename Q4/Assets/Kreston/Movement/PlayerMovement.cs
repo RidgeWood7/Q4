@@ -17,11 +17,11 @@ public class PlayerMovement : MonoBehaviour
 
     public Transform ground;
     public LayerMask groundMask;
-    public float radius = 0.4f;
+    public Vector3 size;
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawSphere(ground.position, radius);
+        Gizmos.DrawWireCube(ground.position, size);
     }
 
     private void Awake()
@@ -39,9 +39,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Gravity()
     {
-        isGrounded = Physics.CheckSphere(ground.position, radius, groundMask);
+        isGrounded = Physics.CheckBox(ground.position, size, Quaternion.identity, groundMask);
 
-        if(isGrounded && velocity.y < 0)
+        if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
         }
