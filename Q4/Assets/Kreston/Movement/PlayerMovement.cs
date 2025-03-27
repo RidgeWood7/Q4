@@ -19,6 +19,10 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
     public Vector3 size;
 
+    public Mask currentMask;
+
+    private Mask[] masks;
+
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireCube(ground.position, size);
@@ -28,6 +32,13 @@ public class PlayerMovement : MonoBehaviour
     {
         controls = new Controller();
         controller = GetComponent<CharacterController>();
+
+        masks = GetComponents<Mask>();
+
+        if (currentMask)
+        {
+            currentMask.EquipMask();
+        }
     }
 
     void Update()
@@ -35,6 +46,41 @@ public class PlayerMovement : MonoBehaviour
         Gravity();
         Movement();
         jumpH();
+        MaskBehaviour();
+    }
+
+    private void MaskBehaviour()
+    {
+
+        if (currentMask)
+        {
+            currentMask.Behaviour();
+        }
+
+        // To-do: iterate through masks and look for button press
+
+        foreach (Mask mask in masks)
+        {
+            if (Input.GetKeyDown(mask.key))
+            {
+                if (mask == currentMask)
+                {
+                    currentMask.UnequipMask();
+                    currentMask = null;
+
+                    break;
+                }
+
+                if (currentMask)
+                {
+                    currentMask.UnequipMask();
+                }
+
+                currentMask = mask;
+
+                currentMask.EquipMask();
+            }
+        }
     }
 
     private void Gravity()

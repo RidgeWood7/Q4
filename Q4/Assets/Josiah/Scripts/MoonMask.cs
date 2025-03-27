@@ -56,4 +56,7 @@ public class MoonMask : Mask
         }
     }
 
+    public override void Behaviour()
+    {
+    }
 }

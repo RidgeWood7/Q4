@@ -4,11 +4,11 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
-public class PickUpScript : MonoBehaviour
+public class SunMask : Mask
 {
     public GameObject player;
     public Transform holdPos;
-    //if you copy from below this point, you are legally required to like the video
+    
     public float pickUpRange = 5f; //how far the player can pickup the object from
     private float rotationSensitivity = 1f; //how fast/slow the object is rotated in relation to mouse movement
     private GameObject heldObj; //object which we pick up
@@ -25,9 +25,10 @@ public class PickUpScript : MonoBehaviour
         //mouseLookScript = player.GetComponent<MouseLookScript>();
     }
 
-    void Update()
+    public override void Behaviour()
     {
-        if (Input.GetMouseButtonDown(0)) //change E to whichever key you want to press to pick up
+        // if you hold left click
+        if (Input.GetMouseButtonDown(0))
         {
             if (heldObj == null) //if currently not holding anything
             {
@@ -37,7 +38,7 @@ public class PickUpScript : MonoBehaviour
                 if (Physics.Raycast(ray, out hit, pickUpRange))
                 {
                     //make sure pickup tag is attached
-                    if (hit.transform.gameObject.CompareTag("Flame"))
+                    if (hit.transform.gameObject.CompareTag("Brazier Flame"))
                     {
                         //pass in object hit into the PickUpFlame function
                         PickUpFlame(hit.transform.gameObject);
@@ -54,6 +55,12 @@ public class PickUpScript : MonoBehaviour
                 }
             }
         }
+
+        if (Input.GetMouseButtonUp(0) && heldObj != null)
+        {
+            DeleteObject();
+        }
+
         if (heldObj != null) //if player is holding object
         {
             MoveObject(); //keep object position at holdPos
@@ -69,8 +76,10 @@ public class PickUpScript : MonoBehaviour
     {
         if (pickUpObj.GetComponent<Rigidbody>()) //make sure the object has a RigidBody
         {
-            heldObj = pickUpObj; //assign heldObj to the object that was hit by the raycast (no longer == null)
-            heldObjRb = pickUpObj.GetComponent<Rigidbody>(); //assign Rigidbody
+            GameObject newPickUpObject = Instantiate(GetComponent<SunMask>().flame);
+
+            heldObj = newPickUpObject; //assign heldObj to the object that was hit by the raycast (no longer == null)
+            heldObjRb = newPickUpObject.GetComponent<Rigidbody>(); //assign Rigidbody
             heldObjRb.isKinematic = true;
             heldObjRb.transform.parent = holdPos.transform; //parent object to holdposition
             heldObj.layer = LayerNumber; //change the object layer to the holdLayer
@@ -95,6 +104,11 @@ public class PickUpScript : MonoBehaviour
         //keep object position the same as the holdPosition position
         heldObj.transform.position = holdPos.transform.position;
     }
+
+    void DeleteObject()
+    {
+        Destroy(heldObj);
+    }
     
     void StopClipping() //function only called when dropping/throwing
     {
@@ -110,5 +124,13 @@ public class PickUpScript : MonoBehaviour
             heldObj.transform.position = transform.position + new Vector3(0f, -0.5f, 0f); //offset slightly downward to stop object dropping above player 
             //if your player is small, change the -0.5f to a smaller number (in magnitude) ie: -0.1f
         }
+    }
+
+    public override void EquipMask()
+    {
+    }
+
+    public override void UnequipMask()
+    {
     }
 }
