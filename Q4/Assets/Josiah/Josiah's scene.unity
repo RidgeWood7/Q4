@@ -387,6 +387,7 @@ GameObject:
   - component: {fileID: 576013134}
   - component: {fileID: 576013142}
   - component: {fileID: 576013143}
+  - component: {fileID: 576013144}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -629,6 +630,23 @@ MonoBehaviour:
   holdPos: {fileID: 1813904843}
   pickUpRange: 5
   flame: {fileID: 7914448171946415222, guid: 80ea472253fa6c947b550a86366f8d79, type: 3}
+--- !u!114 &576013144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576013133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1498fb59a2704f54b91f55ae0483c900, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: 
+  onInteraction:
+    m_PersistentCalls:
+      m_Calls: []
+  playerReach: 3
 --- !u!1 &679206546
 GameObject:
   m_ObjectHideFlags: 0
