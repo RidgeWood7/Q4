@@ -105,7 +105,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void jumpH(){
         if(controls.Player.Jump.triggered && isGrounded == true){
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            float finalJumpH = jumpHeight;
+            if (currentMask is LeafMask leafmask)
+            {
+                finalJumpH *= leafmask.jumpMult;
+            }
+            velocity.y = Mathf.Sqrt(finalJumpH * -2f * gravity);
         }
     }
 
