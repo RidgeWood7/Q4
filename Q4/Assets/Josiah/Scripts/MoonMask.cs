@@ -66,7 +66,7 @@ public class MoonMask : Mask
         }
     }
 
-    public override void Behaviour()
+    public override void Behaviour(PlayerMovement player)
     {
     }
 }

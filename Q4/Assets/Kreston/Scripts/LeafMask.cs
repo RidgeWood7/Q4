@@ -1,10 +1,13 @@
 using System.Collections;
+using UnityEditor.ShaderGraph;
 using UnityEngine;
 
 public class LeafMask : Mask
 {
     public float jumpMult;
+    public float jumpChargeTime = .02f;
 
+    [HideInInspector] public float currentJumpHeight;
 
     private void Start()
     {
@@ -24,8 +27,18 @@ public class LeafMask : Mask
         StartCoroutine (FOVdown());
     }
 
-    public override void Behaviour()
+    public override void Behaviour(PlayerMovement player)
     {
+        Coroutine jump = null;
+        if (player.controls.Player.Jump.triggered)
+        {
+            jump = StartCoroutine (JumpChargeUp());
+        }
+
+        if (jump is not null && player.controls.Player.Jump.WasReleasedThisFrame())
+        {
+            StopCoroutine(jump);
+        }
     }
 
 
@@ -49,10 +62,12 @@ public class LeafMask : Mask
 
     private IEnumerator JumpChargeUp()
     {
+        currentJumpHeight = 1;
         for (int i = 0; i < 20; i++)
         {
-            
-            yield return new WaitForSeconds(.025f);
+            currentJumpHeight = Mathf.Lerp(1, jumpMult, i / 20f);
+            yield return new WaitForSeconds(jumpChargeTime);
         }
+        Debug.Log("Charged!");
     }
 }

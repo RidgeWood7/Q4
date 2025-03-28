@@ -8,7 +8,7 @@ public abstract class Mask : MonoBehaviour
 
     public abstract void EquipMask();
 
-    public abstract void Behaviour();
+    public abstract void Behaviour(PlayerMovement player);
 
     public abstract void UnequipMask();
 }

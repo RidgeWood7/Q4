@@ -256,11 +256,13 @@ Transform:
   m_GameObject: {fileID: 299681590}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.8356771, y: -2.8488543, z: -14.545714}
+  m_LocalPosition: {x: -15.88, y: 2.3, z: 0}
   m_LocalScale: {x: 4.1732, y: 4.1732, z: 25.566275}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1058115347}
+  m_Children:
+  - {fileID: 1058115347}
+  - {fileID: 1677555201}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &299681592
 MonoBehaviour:
@@ -418,14 +420,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1058115346}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.044323, y: 5.1488543, z: 14.545714}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 299681591}
-  - {fileID: 1677555201}
-  m_Father: {fileID: 0}
+  m_Children: []
+  m_Father: {fileID: 299681591}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1201713801
 GameObject:
@@ -1347,8 +1347,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1677555201}
+  - component: {fileID: 1677555202}
   m_Layer: 0
-  m_Name: Trigger Script
+  m_Name: Trigger Script Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1362,13 +1363,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1677555200}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1058115347}
+  m_Father: {fileID: 299681591}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1677555202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677555200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c6cf1842624bba4f97900cf30761686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1856904997}
 --- !u!1 &1856904997
 GameObject:
   m_ObjectHideFlags: 0
@@ -1583,6 +1597,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ea29101fb2d9d745b13186476eace93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  airWeightX: 0.5
+  airWeightY: 0.5
   ground: {fileID: 1000469548}
   groundMask:
     serializedVersion: 2
@@ -1645,6 +1661,8 @@ MonoBehaviour:
   key: 51
   maskName: Leaf Mask
   jumpMult: 3
+  jumpChargeTime: 0.02
+  currentJumpHeight: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1657,4 +1675,4 @@ SceneRoots:
   - {fileID: 1356683007}
   - {fileID: 94275969}
   - {fileID: 1630622292}
-  - {fileID: 1058115347}
+  - {fileID: 299681591}

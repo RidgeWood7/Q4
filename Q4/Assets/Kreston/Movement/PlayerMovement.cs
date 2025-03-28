@@ -5,11 +5,15 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Controller controls;
+    public Controller controls;
     private Vector3 velocity;
     private Vector2 move;
     private CharacterController controller;
     private bool isGrounded;
+    private float movementWeightX = 1f;
+    private float movementWeightY = 1f;
+    public float airWeightX = .5f;
+    public float airWeightY = .5f;
 
     private float moveSpeed = 10f;
     private float gravity = -9.81f;
@@ -27,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
     {
         Gizmos.DrawWireCube(ground.position, size);
     }
+
+
 
     private void Awake()
     {
@@ -47,6 +53,9 @@ public class PlayerMovement : MonoBehaviour
         Movement();
         jumpH();
         MaskBehaviour();
+
+        movementWeightX = isGrounded ? 1f : airWeightX;
+        movementWeightY = isGrounded ? 1f : airWeightY;
     }
 
     private void MaskBehaviour()
@@ -54,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (currentMask)
         {
-            currentMask.Behaviour();
+            currentMask.Behaviour(this);
         }
 
         // To-do: iterate through masks and look for button press
@@ -99,18 +108,28 @@ public class PlayerMovement : MonoBehaviour
     private void Movement(){
         move = controls.Player.Move.ReadValue<Vector2>();
 
-        Vector3 distance = (move.y * transform.forward) + (move.x * transform.right);
+        Vector3 distance = (movementWeightY * move.y * transform.forward) + (movementWeightX * move.x * transform.right);
         controller.Move(distance * moveSpeed * Time.deltaTime);
     }
 
     private void jumpH(){
-        if(controls.Player.Jump.triggered && isGrounded == true){
-            float finalJumpH = jumpHeight;
-            if (currentMask is LeafMask leafmask)
+        float finalJumpH = jumpHeight;
+
+        if (currentMask is LeafMask leafMask)
+        {
+            if (controls.Player.Jump.WasReleasedThisFrame() && isGrounded == true)
             {
-                finalJumpH *= leafmask.jumpMult;
+                finalJumpH *= leafMask.currentJumpHeight;
+                velocity.y = Mathf.Sqrt(finalJumpH * -2f * gravity);
             }
-            velocity.y = Mathf.Sqrt(finalJumpH * -2f * gravity);
+        }
+        else
+        {
+            if (controls.Player.Jump.triggered && isGrounded == true)
+            {
+
+                velocity.y = Mathf.Sqrt(finalJumpH * -2f * gravity);
+            }
         }
     }
 

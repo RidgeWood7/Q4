@@ -25,7 +25,7 @@ public class SunMask : Mask
         //mouseLookScript = player.GetComponent<MouseLookScript>();
     }
 
-    public override void Behaviour()
+    public override void Behaviour(PlayerMovement player)
     {
         // if you hold left click
         if (Input.GetMouseButtonDown(0))
