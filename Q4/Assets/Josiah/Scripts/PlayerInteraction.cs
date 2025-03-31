@@ -1,18 +1,68 @@
+using System.Drawing;
 using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    public float playerReach = 3f;
+    public float playerReach = 5f;
 
     Interactable currentInteractable;
+
+    public Animator leverAnimator;
 
     // Update is called once per frame
     void Update()
     {
-        //CheckInteraction();
+        CheckInteraction();
         if (Input.GetKeyDown(KeyCode.E) && currentInteractable != null)
         {
-            //currentInteractable.Interact();
+            currentInteractable.Interact();
+
+            leverAnimator.SetTrigger("Flip");
+        }
+    }
+
+    void CheckInteraction()
+    {
+        RaycastHit hit;
+        Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+
+        //if colliders with anything within player reach
+        if (Physics.Raycast(ray, out hit, playerReach))
+        {
+            if (hit.collider.CompareTag("Interactable")) //if looking at an interactable object
+            {
+                Interactable newInteractable = hit.collider.GetComponent<Interactable>();
+
+                if (newInteractable.enabled)
+                {
+                    SetNewCurrentInteractable(newInteractable);
+                }
+            }
+
+            else //if not interactable
+            {
+                DisableCurrentInteractable();
+            }
+        }
+
+        else //if not within reach
+        {
+            DisableCurrentInteractable();
+        }
+    }
+
+    void SetNewCurrentInteractable(Interactable newInteractable)
+    {
+        currentInteractable = newInteractable;
+        HUDController.instance.EnableInteractionText(currentInteractable.message);
+    }
+
+    void DisableCurrentInteractable()
+    {
+        HUDController.instance.DisableInteractionText();
+        if (currentInteractable)
+        {
+            currentInteractable = null;
         }
     }
 }
