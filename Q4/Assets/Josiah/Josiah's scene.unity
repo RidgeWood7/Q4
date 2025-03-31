@@ -236,6 +236,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 226814251}
+  - component: {fileID: 226814252}
   m_Layer: 0
   m_Name: Lever
   m_TagString: Untagged
@@ -261,6 +262,23 @@ Transform:
   - {fileID: 217124799}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+--- !u!114 &226814252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226814250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1498fb59a2704f54b91f55ae0483c900, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: Flip Switch
+  onInteraction:
+    m_PersistentCalls:
+      m_Calls: []
+  playerReach: 3
 --- !u!1 &359382289
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,6 +425,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ea29101fb2d9d745b13186476eace93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  airWeightX: 0.5
+  airWeightY: 0.5
   ground: {fileID: 679206547}
   groundMask:
     serializedVersion: 2
