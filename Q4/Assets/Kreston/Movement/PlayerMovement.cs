@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public Controller controls;
     private Vector3 velocity;
     private Vector2 move;
-    private CharacterController controller;
+    [HideInInspector]public CharacterController controller;
     private bool isGrounded;
     private float movementWeightX = 1f;
     private float movementWeightY = 1f;
