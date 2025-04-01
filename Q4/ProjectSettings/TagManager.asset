@@ -8,6 +8,7 @@ TagManager:
   - Flame
   - Unlit Flame
   - Interactable
+  - Pressure Plate
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Ground
   - Invisible
   - holdLayer
-  - 
+  - Pressure Plate
   - 
   - 
   - 
