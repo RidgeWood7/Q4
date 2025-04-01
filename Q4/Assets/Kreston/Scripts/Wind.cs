@@ -13,6 +13,8 @@ public class Wind : MonoBehaviour
 
     private List<PlayerMovement> _objects = new();
 
+    public GameObject Barrier;
+
     public void Start()
     {
         _col = GetComponent<BoxCollider>();
@@ -27,7 +29,18 @@ public class Wind : MonoBehaviour
         {
             if (obj.currentMask is not LeafMask leafMask)
             {
-            obj.controller.Move(_direction * Time.deltaTime);
+                obj.controller.Move(_direction * Time.deltaTime);
+            }
+        }
+        foreach (var obj in _objects)
+        {
+            if (obj.currentMask is LeafMask leafMask)
+            {
+                Barrier.GetComponent<BoxCollider>().enabled = false;
+            }
+            else
+            {
+                Barrier.GetComponent<BoxCollider>().enabled = true;
             }
         }
     }
@@ -36,7 +49,7 @@ public class Wind : MonoBehaviour
     {
         if (collision.TryGetComponent(out PlayerMovement playerMovement))
         {
-        _objects.Add(playerMovement);
+            _objects.Add(playerMovement);
         }
     }
 
@@ -44,7 +57,7 @@ public class Wind : MonoBehaviour
     {
         if (collision.TryGetComponent(out PlayerMovement playerMovement))
         {
-        _objects.Remove(playerMovement);
+            _objects.Remove(playerMovement);
         }
     }
 
