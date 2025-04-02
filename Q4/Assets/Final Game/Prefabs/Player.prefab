@@ -383,13 +383,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
-  airWeightX: 0.5
+  airWeightX: 0.2
   airWeightY: 0.5
   ground: {fileID: 7825140889458093368}
   groundMask:
     serializedVersion: 2
     m_Bits: 64
-  size: {x: 1, y: 0.2, z: 1}
+  size: {x: 0.5, y: 0.2, z: 0.5}
   currentMask: {fileID: 0}
 --- !u!114 &1486044359193781761
 MonoBehaviour:
