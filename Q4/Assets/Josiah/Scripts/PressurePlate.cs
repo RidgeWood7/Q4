@@ -18,6 +18,6 @@ public class PressurePlate : MonoBehaviour
     {
         isSunken = true;
 
-        plateAnimator.SetTrigger("Interact");
+        plateAnimator.SetTrigger("Player Step");
     }
 }

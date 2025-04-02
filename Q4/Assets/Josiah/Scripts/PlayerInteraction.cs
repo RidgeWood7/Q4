@@ -7,8 +7,6 @@ public class PlayerInteraction : MonoBehaviour
 
     Interactable currentInteractable;
 
-    public Animator leverAnimator;
-
     // Update is called once per frame
     void Update()
     {
@@ -16,8 +14,6 @@ public class PlayerInteraction : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && currentInteractable != null)
         {
             currentInteractable.Interact();
-
-            leverAnimator.SetTrigger("Flip");
         }
     }
 
@@ -31,7 +27,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             if (hit.collider.CompareTag("Interactable")) //if looking at an interactable object
             {
-                Interactable newInteractable = hit.collider.GetComponent<Interactable>();
+                Interactable newInteractable = hit.collider.GetComponentInParent<Interactable>();
 
                 if (newInteractable.enabled)
                 {
