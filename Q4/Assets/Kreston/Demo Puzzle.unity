@@ -4296,7 +4296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c6cf1842624bba4f97900cf30761686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _direction: {x: 5, y: 0, z: 0}
+  _direction: {x: 5, y: 0, z: -7}
   _redirectSpeed: 2000
   _isOn: 1
   Barrier: {fileID: 7188316775143348775}
@@ -4596,7 +4596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c6cf1842624bba4f97900cf30761686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _direction: {x: 0, y: 0, z: -10}
+  _direction: {x: -10, y: 0, z: 0}
   _redirectSpeed: 1000
   _isOn: 1
   Barrier: {fileID: 7188316775143348775}
@@ -4784,7 +4784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entryDirection: {x: 1, y: 0, z: 0}
-  localDirection: 0
+  localDirection: 1
   triggerScale: {x: 1.25, y: 1.25, z: 1.25}
   penetrationDepthThreshold: 0.2
 --- !u!1 &6419514867506736954
