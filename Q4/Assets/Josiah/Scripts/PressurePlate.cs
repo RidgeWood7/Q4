@@ -1,18 +1,28 @@
+using NUnit.Framework;
 using UnityEngine;
 
 public class PressurePlate : MonoBehaviour
 {
-    public bool isSunken;
+    public static int plateIDTotal;
+    public static bool complete = false;
+    public int plateIDNum;
 
-    public static int pressurePlatesActivated;
-
-    public bool important;
+    public bool isSunken = false;
 
     public Animator plateAnimator;
 
+    private void Update()
+    {
+        if (complete)
+        {
+            plateAnimator.SetTrigger("Player Step");
+            Debug.Log("COMPLETE");
+        }
+    }
+
     private void OnCollisionEnter(Collision collider)
     {
-        if (collider.gameObject.CompareTag("Player"))
+        if (collider.gameObject.CompareTag("Player") && !isSunken)
         {
             Sink();
         }
@@ -22,33 +32,15 @@ public class PressurePlate : MonoBehaviour
     {
         isSunken = true;
 
-        pressurePlatesActivated ++;
+        plateIDTotal = plateIDTotal + plateIDNum;
 
         plateAnimator.SetTrigger("Player Step");
     }
 
     public void ResetPressurePlates()
     {
-        pressurePlatesActivated = 0;
-
         plateAnimator.SetTrigger("Reset");
-    }
 
-    public void CheckIfCorrect()
-    {
-        if (important == true)
-        {
-            
-        }
-
-        else
-        {
-            ResetPressurePlates();
-        }
-    }
-
-    public void SetAsImportant()
-    {
-        important = true;
+        isSunken = false;
     }
 }

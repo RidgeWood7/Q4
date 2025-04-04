@@ -5,22 +5,20 @@ using UnityEngine.Events;
 public class PressurePlateHost : MonoBehaviour
 {
     //things that stay the same
-    private int _plateTotal = 0;
-    public List<GameObject> plateList;
+    public int correctID;
+    public List<PressurePlate> plates;
 
-    //things that are changed for each puzzle
-    public int plateAmount;
-
-    private void Update()
+    public void CheckPlates()
     {
-        PressurePlate.pressurePlatesActivated = _plateTotal;
-
-        if (plateAmount > _plateTotal)
-        {//this is 
+        //this will run the check for if the code was correct
+        if (correctID == PressurePlate.plateIDTotal)
+        {
+            PressurePlate.complete = true;
         }
-        if (plateAmount == _plateTotal)
-        {//this will run the check for if the code was correct
-            
+        else
+        {
+            PressurePlate.plateIDTotal = 0;
+            plates.ForEach(item => item.ResetPressurePlates());
         }
     }
 }

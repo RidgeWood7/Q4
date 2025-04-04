@@ -383,112 +383,16 @@ MonoBehaviour:
           m_StringArgument: Button press
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 308975472}
-        m_TargetAssemblyTypeName: PressurePlate, Assembly-CSharp
-        m_MethodName: CheckIfCorrect
+      - m_Target: {fileID: 1751186974}
+        m_TargetAssemblyTypeName: PressurePlateHost, Assembly-CSharp
+        m_MethodName: CheckPlates
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Reset
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 309175197}
-        m_TargetAssemblyTypeName: PressurePlate, Assembly-CSharp
-        m_MethodName: CheckIfCorrect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Reset
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 314440803}
-        m_TargetAssemblyTypeName: PressurePlate, Assembly-CSharp
-        m_MethodName: CheckIfCorrect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Reset
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1747401719}
-        m_TargetAssemblyTypeName: PressurePlate, Assembly-CSharp
-        m_MethodName: CheckIfCorrect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Reset
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1516600717}
-        m_TargetAssemblyTypeName: PressurePlate, Assembly-CSharp
-        m_MethodName: CheckIfCorrect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Reset
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1748831650}
-        m_TargetAssemblyTypeName: PressurePlate, Assembly-CSharp
-        m_MethodName: CheckIfCorrect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Reset
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1966205484}
-        m_TargetAssemblyTypeName: PressurePlate, Assembly-CSharp
-        m_MethodName: CheckIfCorrect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Reset
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1423754641}
-        m_TargetAssemblyTypeName: PressurePlate, Assembly-CSharp
-        m_MethodName: CheckIfCorrect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Reset
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1495255766}
-        m_TargetAssemblyTypeName: PressurePlate, Assembly-CSharp
-        m_MethodName: CheckIfCorrect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Reset
+          m_StringArgument: Button press
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &271299848
@@ -805,9 +709,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c19b4cf6f2495743ba070a517517677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plateIDNum: 1
   isSunken: 0
-  pressurePlatesActivated: 0
-  important: 1
   plateAnimator: {fileID: 308975471}
 --- !u!1 &309175195
 GameObject:
@@ -858,9 +761,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c19b4cf6f2495743ba070a517517677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plateIDNum: 10
   isSunken: 0
-  pressurePlatesActivated: 0
-  important: 0
   plateAnimator: {fileID: 309175198}
 --- !u!95 &309175198
 Animator:
@@ -1034,9 +936,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c19b4cf6f2495743ba070a517517677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plateIDNum: 100
   isSunken: 0
-  pressurePlatesActivated: 0
-  important: 0
   plateAnimator: {fileID: 314440804}
 --- !u!95 &314440804
 Animator:
@@ -1934,9 +1835,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c19b4cf6f2495743ba070a517517677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plateIDNum: 10000000
   isSunken: 0
-  pressurePlatesActivated: 0
-  important: 0
   plateAnimator: {fileID: 1423754642}
 --- !u!95 &1423754642
 Animator:
@@ -2218,9 +2118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c19b4cf6f2495743ba070a517517677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plateIDNum: 100000000
   isSunken: 0
-  pressurePlatesActivated: 0
-  important: 1
   plateAnimator: {fileID: 1495255767}
 --- !u!95 &1495255767
 Animator:
@@ -2394,9 +2293,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c19b4cf6f2495743ba070a517517677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plateIDNum: 10000
   isSunken: 0
-  pressurePlatesActivated: 0
-  important: 1
   plateAnimator: {fileID: 1516600718}
 --- !u!95 &1516600718
 Animator:
@@ -3104,9 +3002,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c19b4cf6f2495743ba070a517517677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plateIDNum: 1000
   isSunken: 0
-  pressurePlatesActivated: 0
-  important: 0
   plateAnimator: {fileID: 1747401720}
 --- !u!95 &1747401720
 Animator:
@@ -3280,9 +3177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c19b4cf6f2495743ba070a517517677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plateIDNum: 100000
   isSunken: 0
-  pressurePlatesActivated: 0
-  important: 0
   plateAnimator: {fileID: 1748831651}
 --- !u!95 &1748831651
 Animator:
@@ -3460,16 +3356,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6545bf8ce5bb0241874f2408184aca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctID: 111011001
   plates:
-  - {fileID: 308975465}
-  - {fileID: 309175195}
-  - {fileID: 314440801}
-  - {fileID: 1747401717}
-  - {fileID: 1516600715}
-  - {fileID: 1748831648}
-  - {fileID: 1966205482}
-  - {fileID: 1423754639}
-  - {fileID: 1495255764}
+  - {fileID: 308975472}
+  - {fileID: 309175197}
+  - {fileID: 314440803}
+  - {fileID: 1747401719}
+  - {fileID: 1516600717}
+  - {fileID: 1748831650}
+  - {fileID: 1966205484}
+  - {fileID: 1423754641}
+  - {fileID: 1495255766}
 --- !u!1 &1799773448 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4496421172104468303, guid: 979914a096d31324c9e0cf9375a96423,
@@ -3632,9 +3529,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c19b4cf6f2495743ba070a517517677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plateIDNum: 1000000
   isSunken: 0
-  pressurePlatesActivated: 0
-  important: 0
   plateAnimator: {fileID: 1966205485}
 --- !u!95 &1966205485
 Animator:
