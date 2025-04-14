@@ -85,9 +85,13 @@ public class PlayerMovement : MonoBehaviour
                     currentMask.UnequipMask();
                 }
 
-                currentMask = mask;
+                if (mask.collectedMask == true)
+                {
+                    currentMask = mask;
 
-                currentMask.EquipMask();
+                    currentMask.EquipMask();
+                }
+
             }
         }
     }

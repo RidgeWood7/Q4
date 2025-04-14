@@ -11,19 +11,24 @@ public class MoonMask : Mask
     [SerializeField] private Color maskColor;
     public Animator maskAnimations;
 
+
     public override void EquipMask()
     {
-        cam.cullingMask = maskOn;
-
-        // Takes camera's volume profile in order to make changes to it
-        var volume = cam.GetComponent<Volume>().profile;
-
-        // TryGet accesses component if the object it's attached to has that component. Returns a true bool if it has it, returns a false bool if it doesn't
-        if (volume.TryGet(out ColorAdjustments color)&& volume.TryGet(out ChromaticAberration chromaticAberration))
+        if (collectedMask == true)
         {
-            // Starts FadeIn coroutine when you equip the mask. Passes in color filter and chromatic aberration in order to change them
-            StartCoroutine(FadeIn(color, chromaticAberration));
+            cam.cullingMask = maskOn;
+
+            // Takes camera's volume profile in order to make changes to it
+            var volume = cam.GetComponent<Volume>().profile;
+
+            // TryGet accesses component if the object it's attached to has that component. Returns a true bool if it has it, returns a false bool if it doesn't
+            if (volume.TryGet(out ColorAdjustments color) && volume.TryGet(out ChromaticAberration chromaticAberration))
+            {
+                // Starts FadeIn coroutine when you equip the mask. Passes in color filter and chromatic aberration in order to change them
+                StartCoroutine(FadeIn(color, chromaticAberration));
+            }
         }
+
     }
 
     // All coroutines start with IEnumerator. Runs code when you want it instead of the way unity wants it. Allows you to control timing of code
@@ -43,16 +48,20 @@ public class MoonMask : Mask
 
     public override void UnequipMask()
     {
-        // Turns off the "Invisible" culling mask so you can't see it
-        cam.cullingMask = maskOff;
-
-        var volume = cam.GetComponent<Volume>().profile;
-
-        if (volume.TryGet(out ColorAdjustments color) && volume.TryGet(out ChromaticAberration chromaticAberration))
+        if (collectedMask == true)
         {
-            StartCoroutine (FadeOut(color, chromaticAberration));
+            // Turns off the "Invisible" culling mask so you can't see it
+            cam.cullingMask = maskOff;
 
+            var volume = cam.GetComponent<Volume>().profile;
+
+            if (volume.TryGet(out ColorAdjustments color) && volume.TryGet(out ChromaticAberration chromaticAberration))
+            {
+                StartCoroutine(FadeOut(color, chromaticAberration));
+
+            }
         }
+        
     }
 
     // Does the opposite of the other coroutine since the numbers are flipped

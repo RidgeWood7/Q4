@@ -17,6 +17,7 @@ public class SunMask : Mask
     public GameObject flame;
 
 
+
     void Start()
     {
         LayerNumber = LayerMask.NameToLayer("holdLayer"); //if your holdLayer is named differently make sure to change this ""
@@ -26,31 +27,35 @@ public class SunMask : Mask
 
     public override void Behaviour(PlayerMovement player)
     {
-        // if you hold left click
-        if (Input.GetMouseButtonDown(0))
+        if (collectedMask == true)
         {
-            if (heldObj == null) //if currently not holding anything
+            // if you hold left click
+            if (Input.GetMouseButtonDown(0))
             {
-                //perform raycast to check if player is looking at object within pickuprange
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-                if (Physics.Raycast(ray, out hit, pickUpRange))
+                if (heldObj == null) //if currently not holding anything
                 {
-                    //make sure pickup tag is attached
-                    if (hit.transform.gameObject.CompareTag("Brazier Flame"))
+                    //perform raycast to check if player is looking at object within pickuprange
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    RaycastHit hit;
+                    if (Physics.Raycast(ray, out hit, pickUpRange))
                     {
-                        //pass in object hit into the PickUpFlame function
-                        PickUpFlame(hit.transform.gameObject);
-                    };
+                        //make sure pickup tag is attached
+                        if (hit.transform.gameObject.CompareTag("Brazier Flame"))
+                        {
+                            //pass in object hit into the PickUpFlame function
+                            PickUpFlame(hit.transform.gameObject);
+                        }
+                        ;
+                    }
                 }
-            }
 
-            else
-            {
-                if (canDrop == true)
+                else
                 {
-                    StopClipping(); //prevents object from clipping through walls
-                    DropObject();
+                    if (canDrop == true)
+                    {
+                        StopClipping(); //prevents object from clipping through walls
+                        DropObject();
+                    }
                 }
             }
         }

@@ -9,6 +9,8 @@ public class LeafMask : Mask
 
     [HideInInspector] public float currentJumpHeight;
 
+
+
     private void Start()
     {
     }
@@ -29,15 +31,18 @@ public class LeafMask : Mask
 
     public override void Behaviour(PlayerMovement player)
     {
-        Coroutine jump = null;
-        if (player.controls.Player.Jump.triggered)
+        if (collectedMask == true)
         {
-            jump = StartCoroutine (JumpChargeUp());
-        }
+            Coroutine jump = null;
+            if (player.controls.Player.Jump.triggered)
+            {
+                jump = StartCoroutine(JumpChargeUp());
+            }
 
-        if (jump is not null && player.controls.Player.Jump.WasReleasedThisFrame())
-        {
-            StopCoroutine(jump);
+            if (jump is not null && player.controls.Player.Jump.WasReleasedThisFrame())
+            {
+                StopCoroutine(jump);
+            }
         }
     }
 
