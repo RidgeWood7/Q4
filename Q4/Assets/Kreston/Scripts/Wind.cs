@@ -15,6 +15,7 @@ public class Wind : MonoBehaviour
     private List<PlayerMovement> _objects = new();
 
     public GameObject Barrier;
+    public ParticleSystem ParticleSystem;
 
     public void Awake()
     {
@@ -79,10 +80,10 @@ public class Wind : MonoBehaviour
     {
         _isOn = !_isOn;
 
-        //if (!_isOn)
-        //    _particles.Stop();
-        //else
-        //    _particles.Play();
+        if (!_isOn)
+            ParticleSystem.Stop();
+        else
+            ParticleSystem.Play();
     }
 
     [ContextMenu("Toggle Off")]
@@ -90,9 +91,9 @@ public class Wind : MonoBehaviour
     {
         _isOn = !_isOn;
 
-        //if (!_isOn)
-        //    _particles.Stop();
-        //else
-        //    _particles.Play();
+        if (!_isOn)
+            ParticleSystem.Stop();
+        else
+            ParticleSystem.Play();
     }
 }

@@ -343,6 +343,7 @@ MonoBehaviour:
   _redirectSpeed: 1000
   _isOn: 1
   Barrier: {fileID: 0}
+  ParticleSystem: {fileID: 6359337259943342877}
 --- !u!198 &6359337259943342877
 ParticleSystem:
   m_ObjectHideFlags: 0
