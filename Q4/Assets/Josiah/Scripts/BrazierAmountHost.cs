@@ -2,23 +2,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PressurePlateHost : MonoBehaviour
+public class BrazierAmountHost : MonoBehaviour
 {
     //things that stay the same
-    public int plateCorrectID;
-    public List<PressurePlate> plates;
+    public int correctID;
+    public List<BrazierAmount> plates;
 
     public void CheckPlates()
     {
         //this will run the check for if the code was correct
-        if (plateCorrectID == PressurePlate.plateIDTotal)
+        if (correctID == PressurePlate.plateIDTotal)
         {
-            PressurePlate.platesComplete = true;
+            BrazierAmount.complete = true;
         }
         else
         {
             PressurePlate.plateIDTotal = 0;
-            plates.ForEach(item => item.ResetPressurePlates());
+            plates.ForEach(item => item.ResetBraziers());
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 public class PressurePlate : MonoBehaviour
 {
     public static int plateIDTotal;
-    public static bool complete = false;
+    public static bool platesComplete = false;
     public int plateIDNum;
 
     public bool isSunken = false;
@@ -13,7 +13,7 @@ public class PressurePlate : MonoBehaviour
 
     private void Update()
     {
-        if (complete)
+        if (platesComplete)
         {
             plateAnimator.SetTrigger("Player Step");
             Debug.Log("COMPLETE");
