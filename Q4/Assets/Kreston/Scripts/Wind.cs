@@ -46,15 +46,19 @@ public class Wind : MonoBehaviour
                 obj.controller.Move(_direction * Time.deltaTime);
             }
         }
-        foreach (var obj in _objects)
+
+        if (Barrier)
         {
-            if (obj.currentMask is LeafMask leafMask)
+            foreach (var obj in _objects)
             {
-                Barrier.GetComponent<BoxCollider>().enabled = false;
-            }
-            else
-            {
-                Barrier.GetComponent<BoxCollider>().enabled = true;
+                if (obj.currentMask is LeafMask leafMask)
+                {
+                    Barrier.GetComponent<BoxCollider>().enabled = false;
+                }
+                else
+                {
+                    Barrier.GetComponent<BoxCollider>().enabled = true;
+                }
             }
         }
     }
@@ -75,8 +79,8 @@ public class Wind : MonoBehaviour
         }
     }
 
-    [ContextMenu("Toggle On")]
-    public void ToggleOn()
+    [ContextMenu("Toggle")]
+    public void Toggle()
     {
         _isOn = !_isOn;
 
@@ -89,11 +93,16 @@ public class Wind : MonoBehaviour
     [ContextMenu("Toggle Off")]
     public void ToggleOff()
     {
-        _isOn = !_isOn;
+        _isOn = false;
 
-        if (!_isOn)
-            ParticleSystem.Stop();
-        else
-            ParticleSystem.Play();
+        ParticleSystem.Stop();
+    }
+
+    [ContextMenu("Toggle On")]
+    public void ToggleOn()
+    {
+        _isOn = true;
+        
+        ParticleSystem.Play();
     }
 }
