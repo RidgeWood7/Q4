@@ -49,7 +49,19 @@ MonoBehaviour:
   message: Flip Lever
   onInteraction:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6281104235909852353}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Flip
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &642728553154987075
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,7 +312,7 @@ GameObject:
   - component: {fileID: 5175781667062643762}
   - component: {fileID: 6281104235909852353}
   m_Layer: 0
-  m_Name: Shaft and Ball
+  m_Name: Lever Arm
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
