@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8353856816158663789}
   m_Layer: 0
-  m_Name: 'Wind Tunnel [Z+]'
+  m_Name: '[Z+] Wind Tunnel'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

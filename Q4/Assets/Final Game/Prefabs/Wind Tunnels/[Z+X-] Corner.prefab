@@ -5155,7 +5155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2055739898504771395}
   m_Layer: 0
-  m_Name: 'Corner [Z+X-]'
+  m_Name: '[Z+X-] Corner'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
