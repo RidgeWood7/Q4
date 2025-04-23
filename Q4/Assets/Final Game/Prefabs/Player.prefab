@@ -403,8 +403,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1a8714867ef67d41ba71c717cab198d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 51
+  key:
+    m_Name: Key
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 3173bb4c-de21-4305-931e-7b656e761fb9
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   maskName: Leaf Mask
+  collectedMask: 0
   jumpMult: 3
   jumpChargeTime: 0.02
   currentJumpHeight: 0
@@ -420,8 +429,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd8a987168dd2b74f8cda90e93829132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 50
+  key:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: eabc6c29-67d3-486b-93cd-8b7f74eb94eb
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   maskName: Sun Mask
+  collectedMask: 0
   player: {fileID: 0}
   holdPos: {fileID: 0}
   pickUpRange: 5
@@ -438,8 +456,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b911365937203a4993aa5ba6ccabd2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 49
+  key:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 1ae36095-e175-4b6b-8590-d2a95da69e1c
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   maskName: Moon Mask
+  collectedMask: 0
   cam: {fileID: 6826807328305049508}
   maskOff:
     serializedVersion: 2

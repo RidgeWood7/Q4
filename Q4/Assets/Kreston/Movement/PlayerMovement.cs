@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Controller controls;
     private Vector3 velocity;
     private Vector2 move;
-    [HideInInspector]public CharacterController controller;
+    [HideInInspector] public CharacterController controller;
     private bool isGrounded;
     private float movementWeightX = 1f;
     private float movementWeightY = 1f;
@@ -36,7 +36,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        controls = new Controller();
         controller = GetComponent<CharacterController>();
 
         masks = GetComponents<Mask>();
@@ -50,49 +49,98 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Gravity();
-        Movement();
-        jumpH();
         MaskBehaviour();
+
+        Vector3 distance = (movementWeightY * move.y * transform.forward) + (movementWeightX * move.x * transform.right);
+        controller.Move(distance * moveSpeed * Time.deltaTime);
 
         movementWeightX = isGrounded ? 1f : airWeightX;
         movementWeightY = isGrounded ? 1f : airWeightY;
     }
 
-    private void MaskBehaviour()
+    public void MoonMask(InputAction.CallbackContext ctx)
     {
+        if (ctx.ReadValue<float>() == 0)
+            return;
+
+        if (masks[0] == currentMask)
+        {
+            currentMask.UnequipMask();
+            currentMask = null;
+
+            return;
+        }
 
         if (currentMask)
         {
-            currentMask.Behaviour(this);
+            currentMask.UnequipMask();
         }
 
-        // To-do: iterate through masks and look for button press
-
-        foreach (Mask mask in masks)
+        if (masks[0].collectedMask == true)
         {
-            if (Input.GetKeyDown(mask.key))
-            {
-                if (mask == currentMask)
-                {
-                    currentMask.UnequipMask();
-                    currentMask = null;
+            currentMask = masks[0];
 
-                    break;
-                }
+            currentMask.EquipMask();
+        }
+    }
 
-                if (currentMask)
-                {
-                    currentMask.UnequipMask();
-                }
+    public void SunMask(InputAction.CallbackContext ctx)
+    {
+        if (ctx.ReadValue<float>() == 0)
+            return;
 
-                if (mask.collectedMask == true)
-                {
-                    currentMask = mask;
+        if (masks[1] == currentMask)
+        {
+            currentMask.UnequipMask();
+            currentMask = null;
 
-                    currentMask.EquipMask();
-                }
+            return;
+        }
 
-            }
+        if (currentMask)
+        {
+            currentMask.UnequipMask();
+        }
+
+        if (masks[1].collectedMask == true)
+        {
+            currentMask = masks[1];
+
+            currentMask.EquipMask();
+        }
+    }
+
+    public void LeafMask(InputAction.CallbackContext ctx)
+    {
+        if (ctx.ReadValue<float>() == 0)
+            return;
+
+        if (masks[2] == currentMask)
+        {
+            currentMask.UnequipMask();
+            currentMask = null;
+
+            return;
+        }
+
+        if (currentMask)
+        {
+            currentMask.UnequipMask();
+        }
+
+        if (masks[2].collectedMask == true)
+        {
+            currentMask = masks[2];
+
+            currentMask.EquipMask();
+        }
+    }
+
+    private void MaskBehaviour()
+    {
+        if (currentMask)
+        {
+            currentMask.Behaviour(this);
         }
     }
 
@@ -109,19 +157,18 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
-    private void Movement(){
-        move = controls.Player.Move.ReadValue<Vector2>();
-
-        Vector3 distance = (movementWeightY * move.y * transform.forward) + (movementWeightX * move.x * transform.right);
-        controller.Move(distance * moveSpeed * Time.deltaTime);
+    public void Movement(InputAction.CallbackContext ctx)
+    {
+        move = ctx.ReadValue<Vector2>();
     }
 
-    private void jumpH(){
+    public void jumpH(InputAction.CallbackContext ctx)
+    {
         float finalJumpH = jumpHeight;
 
         if (currentMask is LeafMask leafMask)
         {
-            if (controls.Player.Jump.WasReleasedThisFrame() && isGrounded == true)
+            if (ctx.ReadValue<float>() == 0 && isGrounded == true)
             {
                 finalJumpH *= leafMask.currentJumpHeight;
                 velocity.y = Mathf.Sqrt(finalJumpH * -2f * gravity);
@@ -129,19 +176,11 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if (controls.Player.Jump.triggered && isGrounded == true)
+            if (ctx.ReadValue<float>() == 1 && isGrounded == true)
             {
 
                 velocity.y = Mathf.Sqrt(finalJumpH * -2f * gravity);
             }
         }
-    }
-
-    private void OnEnable(){
-        controls.Enable();
-    }
-
-    private void OnDisable(){
-        controls.Disable();
     }
 }

@@ -1,9 +1,9 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 public abstract class Mask : MonoBehaviour
 {
-    public KeyCode key;
     public string maskName;
 
     public bool collectedMask;

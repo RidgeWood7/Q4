@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEditor.ShaderGraph;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class LeafMask : Mask
 {
@@ -34,12 +35,12 @@ public class LeafMask : Mask
         if (collectedMask == true)
         {
             Coroutine jump = null;
-            if (player.controls.Player.Jump.triggered)
+            if (player.GetComponent<PlayerInput>().actions["Jump"].triggered)
             {
                 jump = StartCoroutine(JumpChargeUp());
             }
 
-            if (jump is not null && player.controls.Player.Jump.WasReleasedThisFrame())
+            if (jump is not null && player.GetComponent<PlayerInput>().actions["Jump"].WasReleasedThisFrame())
             {
                 StopCoroutine(jump);
             }

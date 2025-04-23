@@ -1,5 +1,6 @@
 using System.Drawing;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -7,11 +8,10 @@ public class PlayerInteraction : MonoBehaviour
 
     Interactable currentInteractable;
 
-    // Update is called once per frame
-    void Update()
+    public void interact(InputAction.CallbackContext ctx)
     {
         CheckInteraction();
-        if (Input.GetKeyDown(KeyCode.E) && currentInteractable != null)
+        if (currentInteractable != null)
         {
             currentInteractable.Interact();
         }

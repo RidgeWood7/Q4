@@ -49,7 +49,7 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                     ""name"": ""Fire"",
                     ""type"": ""Button"",
                     ""id"": ""87f420f3-72b6-4665-ab7e-6fbd9c707c26"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -58,6 +58,42 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""9322d87b-ea56-4b60-b272-e9dd01798c15"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""32f90bd4-11cf-47d7-93b0-0a7d7811c1b1"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Moon Mask"",
+                    ""type"": ""Button"",
+                    ""id"": ""7c22f6c4-3ca5-43d8-9213-77093391976b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Sun Mask"",
+                    ""type"": ""Button"",
+                    ""id"": ""48cd27be-4bff-40d9-b9b3-92002a95f794"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Leaf Mask"",
+                    ""type"": ""Button"",
+                    ""id"": ""e2140cda-6289-41c6-abc6-85581acf7a56"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -291,7 +327,7 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -302,8 +338,96 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Gamepad"",
                     ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""78294fd6-8517-42f8-9b56-1c3b5e1b5409"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""24be8aff-0591-4b54-a3bb-dbf755f85aaa"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""59191887-e6ff-42e8-a746-5773d85dcf61"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Moon Mask"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""55148683-7293-4bcd-840b-eae4f1355201"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Moon Mask"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d65ed3d3-b387-4f4c-bc28-f421985d4cfe"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Sun Mask"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a30dedf9-4b59-4756-93b9-4899652c5367"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Sun Mask"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b4d06f43-2608-4022-a47f-692793096514"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Leaf Mask"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6bfa9744-5bb7-4df4-addc-1675ee01b40f"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Leaf Mask"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -326,7 +450,7 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                     ""name"": ""Submit"",
                     ""type"": ""Button"",
                     ""id"": ""c28d382c-55b7-448b-8056-522c20a8cac7"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -895,6 +1019,10 @@ public partial class @Controller: IInputActionCollection2, IDisposable
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        m_Player_MoonMask = m_Player.FindAction("Moon Mask", throwIfNotFound: true);
+        m_Player_SunMask = m_Player.FindAction("Sun Mask", throwIfNotFound: true);
+        m_Player_LeafMask = m_Player.FindAction("Leaf Mask", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -978,6 +1106,10 @@ public partial class @Controller: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_Jump;
+    private readonly InputAction m_Player_Interact;
+    private readonly InputAction m_Player_MoonMask;
+    private readonly InputAction m_Player_SunMask;
+    private readonly InputAction m_Player_LeafMask;
     public struct PlayerActions
     {
         private @Controller m_Wrapper;
@@ -986,6 +1118,10 @@ public partial class @Controller: IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
+        public InputAction @Interact => m_Wrapper.m_Player_Interact;
+        public InputAction @MoonMask => m_Wrapper.m_Player_MoonMask;
+        public InputAction @SunMask => m_Wrapper.m_Player_SunMask;
+        public InputAction @LeafMask => m_Wrapper.m_Player_LeafMask;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1007,6 +1143,18 @@ public partial class @Controller: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
+            @MoonMask.started += instance.OnMoonMask;
+            @MoonMask.performed += instance.OnMoonMask;
+            @MoonMask.canceled += instance.OnMoonMask;
+            @SunMask.started += instance.OnSunMask;
+            @SunMask.performed += instance.OnSunMask;
+            @SunMask.canceled += instance.OnSunMask;
+            @LeafMask.started += instance.OnLeafMask;
+            @LeafMask.performed += instance.OnLeafMask;
+            @LeafMask.canceled += instance.OnLeafMask;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1023,6 +1171,18 @@ public partial class @Controller: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
+            @MoonMask.started -= instance.OnMoonMask;
+            @MoonMask.performed -= instance.OnMoonMask;
+            @MoonMask.canceled -= instance.OnMoonMask;
+            @SunMask.started -= instance.OnSunMask;
+            @SunMask.performed -= instance.OnSunMask;
+            @SunMask.canceled -= instance.OnSunMask;
+            @LeafMask.started -= instance.OnLeafMask;
+            @LeafMask.performed -= instance.OnLeafMask;
+            @LeafMask.canceled -= instance.OnLeafMask;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1209,6 +1369,10 @@ public partial class @Controller: IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
+        void OnMoonMask(InputAction.CallbackContext context);
+        void OnSunMask(InputAction.CallbackContext context);
+        void OnLeafMask(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

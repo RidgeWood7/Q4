@@ -5,8 +5,7 @@ using UnityEngine.InputSystem;
 
 public class MouseLook : MonoBehaviour
 {
-    private Controller controls;
-    private float mouseSensitivity = 100f;
+    public float mouseSensitivity = 100f;
     private float xRotation = 0f;
 
     private Vector2 mouseLook;
@@ -17,19 +16,11 @@ public class MouseLook : MonoBehaviour
     {
         playerBody = transform.parent;
 
-        controls = new Controller();
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    void Update()
+    private void Update()
     {
-        Look();
-    }
-
-    private void Look()
-    {
-        mouseLook = controls.Player.Look.ReadValue<Vector2>();
-
         float mouseX = mouseLook.x * mouseSensitivity * Time.deltaTime;
         float mouseY = mouseLook.y * mouseSensitivity * Time.deltaTime;
 
@@ -40,11 +31,8 @@ public class MouseLook : MonoBehaviour
         playerBody.Rotate(Vector3.up * mouseX);
     }
 
-    private void OnEnable() {
-        controls.Enable();
-    }
-
-    private void OnDisable() {
-        controls.Disable();
+    public void Look(InputAction.CallbackContext ctx)
+    {
+        mouseLook = ctx.ReadValue<Vector2>();
     }
 }
