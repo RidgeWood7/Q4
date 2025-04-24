@@ -50,6 +50,7 @@ public class LeafMask : Mask
 
     private IEnumerator FOVup()
     {
+        Debug.Log("help");
         for (int i = 0; i < 20; i++)
         {
             Camera.main.fieldOfView = Mathf.Lerp(75, 90, i/20f);
@@ -59,6 +60,7 @@ public class LeafMask : Mask
 
     private IEnumerator FOVdown()
     {
+        Debug.Log("me");
         for (int i = 0; i < 20; i++)
         {
             Camera.main.fieldOfView = Mathf.Lerp(90, 75, i / 20f);
