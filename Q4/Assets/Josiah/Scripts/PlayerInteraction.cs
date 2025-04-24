@@ -16,7 +16,10 @@ public class PlayerInteraction : MonoBehaviour
             currentInteractable.Interact();
         }
     }
-
+    private void Update()
+    {
+        CheckInteraction();
+    }
     void CheckInteraction()
     {
         RaycastHit hit;

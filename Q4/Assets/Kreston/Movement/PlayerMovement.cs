@@ -75,7 +75,6 @@ public class PlayerMovement : MonoBehaviour
         {
             currentMask.UnequipMask();
         }
-
         if (masks[0].collectedMask == true)
         {
             currentMask = masks[0];
@@ -101,7 +100,6 @@ public class PlayerMovement : MonoBehaviour
         {
             currentMask.UnequipMask();
         }
-
         if (masks[1].collectedMask == true)
         {
             currentMask = masks[1];
@@ -127,7 +125,6 @@ public class PlayerMovement : MonoBehaviour
         {
             currentMask.UnequipMask();
         }
-
         if (masks[2].collectedMask == true)
         {
             currentMask = masks[2];
