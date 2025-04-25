@@ -98,6 +98,15 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Flame Hold"",
+                    ""type"": ""Button"",
+                    ""id"": ""fe12285a-77e9-45be-9fde-f8aff8ce3b3e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -428,6 +437,28 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""Leaf Mask"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""075c32dd-ddf9-4bc2-9502-fe935e1dcd01"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Flame Hold"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8639dff8-157d-4896-b2dd-66f73870119c"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Flame Hold"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1023,6 +1054,7 @@ public partial class @Controller: IInputActionCollection2, IDisposable
         m_Player_MoonMask = m_Player.FindAction("Moon Mask", throwIfNotFound: true);
         m_Player_SunMask = m_Player.FindAction("Sun Mask", throwIfNotFound: true);
         m_Player_LeafMask = m_Player.FindAction("Leaf Mask", throwIfNotFound: true);
+        m_Player_FlameHold = m_Player.FindAction("Flame Hold", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1110,6 +1142,7 @@ public partial class @Controller: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_MoonMask;
     private readonly InputAction m_Player_SunMask;
     private readonly InputAction m_Player_LeafMask;
+    private readonly InputAction m_Player_FlameHold;
     public struct PlayerActions
     {
         private @Controller m_Wrapper;
@@ -1122,6 +1155,7 @@ public partial class @Controller: IInputActionCollection2, IDisposable
         public InputAction @MoonMask => m_Wrapper.m_Player_MoonMask;
         public InputAction @SunMask => m_Wrapper.m_Player_SunMask;
         public InputAction @LeafMask => m_Wrapper.m_Player_LeafMask;
+        public InputAction @FlameHold => m_Wrapper.m_Player_FlameHold;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1155,6 +1189,9 @@ public partial class @Controller: IInputActionCollection2, IDisposable
             @LeafMask.started += instance.OnLeafMask;
             @LeafMask.performed += instance.OnLeafMask;
             @LeafMask.canceled += instance.OnLeafMask;
+            @FlameHold.started += instance.OnFlameHold;
+            @FlameHold.performed += instance.OnFlameHold;
+            @FlameHold.canceled += instance.OnFlameHold;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1183,6 +1220,9 @@ public partial class @Controller: IInputActionCollection2, IDisposable
             @LeafMask.started -= instance.OnLeafMask;
             @LeafMask.performed -= instance.OnLeafMask;
             @LeafMask.canceled -= instance.OnLeafMask;
+            @FlameHold.started -= instance.OnFlameHold;
+            @FlameHold.performed -= instance.OnFlameHold;
+            @FlameHold.canceled -= instance.OnFlameHold;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1373,6 +1413,7 @@ public partial class @Controller: IInputActionCollection2, IDisposable
         void OnMoonMask(InputAction.CallbackContext context);
         void OnSunMask(InputAction.CallbackContext context);
         void OnLeafMask(InputAction.CallbackContext context);
+        void OnFlameHold(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SunMask : Mask
 {
@@ -30,12 +31,12 @@ public class SunMask : Mask
         if (collectedMask == true)
         {
             // if you hold left click
-            if (Input.GetMouseButtonDown(0))
+            if (player.GetComponent<PlayerInput>().actions["Flame Hold"].WasPressedThisFrame())
             {
                 if (heldObj == null) //if currently not holding anything
                 {
                     //perform raycast to check if player is looking at object within pickuprange
-                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
                     RaycastHit hit;
                     if (Physics.Raycast(ray, out hit, pickUpRange))
                     {
@@ -60,7 +61,7 @@ public class SunMask : Mask
             }
         }
 
-        if (Input.GetMouseButtonUp(0) && heldObj != null)
+        if (player.GetComponent<PlayerInput>().actions["Flame Hold"].WasReleasedThisFrame() && heldObj != null)
         {
             DeleteObject();
         }
@@ -68,7 +69,7 @@ public class SunMask : Mask
         if (heldObj != null) //if player is holding object
         {
             MoveObject(); //keep object position at holdPos
-            if (Input.GetKeyDown(KeyCode.Mouse0) && canDrop == true) //Mous0 (leftclick) is used to throw, change this if you want another button to be used)
+            if (player.GetComponent<PlayerInput>().actions["Flame Hold"].WasPressedThisFrame() && canDrop == true) //Mous0 (leftclick) is used to throw, change this if you want another button to be used)
             {
                 StopClipping();
             }
