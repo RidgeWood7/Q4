@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void MoonMask(InputAction.CallbackContext ctx)
     {
-        if (ctx.ReadValue<float>() == 0)
+        if (!ctx.performed)
             return;
 
         if (masks[0] == currentMask)
@@ -85,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void SunMask(InputAction.CallbackContext ctx)
     {
-        if (ctx.ReadValue<float>() == 0)
+        if (!ctx.performed)
             return;
 
         if (masks[1] == currentMask)
@@ -110,7 +110,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void LeafMask(InputAction.CallbackContext ctx)
     {
-        if (ctx.ReadValue<float>() == 0)
+        if (!ctx.performed)
             return;
 
         if (masks[2] == currentMask)

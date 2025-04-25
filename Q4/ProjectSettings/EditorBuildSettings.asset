@@ -8,5 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Kreston/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: a1922a81b79f5754d91fa256136ef437,
+      type: 3}
   m_UseUCBPForAssetBundles: 0
