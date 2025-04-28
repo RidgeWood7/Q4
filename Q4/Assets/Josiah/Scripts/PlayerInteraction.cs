@@ -10,6 +10,11 @@ public class PlayerInteraction : MonoBehaviour
 
     public void interact(InputAction.CallbackContext ctx)
     {
+        if (!ctx.performed)
+        {
+            return;
+        }
+
         CheckInteraction();
         if (currentInteractable != null)
         {
