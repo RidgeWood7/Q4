@@ -7,16 +7,25 @@ public class NormalLever : MonoBehaviour
 {
     public UnityEvent leverInteract;
 
+    public bool isFlipping;
+
     public void Interact()
     {
-        StartCoroutine(LeverFlipUp(GetComponentInChildren<Animator>()));
+        if (isFlipping == false)
+        {
+            StartCoroutine(LeverFlip(GetComponentInChildren<Animator>()));
+        }
     }
 
-    IEnumerator LeverFlipUp(Animator leverUp)
+    IEnumerator LeverFlip(Animator leverFlip)
     {
-        leverUp.SetTrigger("Flip");
+        leverFlip.SetTrigger("Flip");
 
-        yield return new WaitUntil(() => leverUp.GetNextAnimatorStateInfo(0).normalizedTime>=1);
+        isFlipping = true;
+
+        yield return new WaitUntil(() => leverFlip.GetNextAnimatorStateInfo(0).normalizedTime>=1);
+
+        isFlipping = false;
 
         leverInteract.Invoke();
     }
