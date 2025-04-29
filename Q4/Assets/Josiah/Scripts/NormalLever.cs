@@ -9,7 +9,7 @@ public class NormalLever : MonoBehaviour
 
     public bool isFlipping;
 
-    public void Interact()
+    public void LeverInteract()
     {
         if (isFlipping == false)
         {
@@ -23,7 +23,7 @@ public class NormalLever : MonoBehaviour
 
         isFlipping = true;
 
-        yield return new WaitUntil(() => leverFlip.GetNextAnimatorStateInfo(0).normalizedTime>=1);
+        yield return new WaitForSeconds(1);
 
         isFlipping = false;
 
