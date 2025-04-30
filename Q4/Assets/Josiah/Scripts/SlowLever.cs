@@ -31,7 +31,7 @@ public class SlowLever : MonoBehaviour
 
         leverFlip.SetTrigger("Slow Flip");
 
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(20);
 
         isSlowlyFlipping = false;
 
