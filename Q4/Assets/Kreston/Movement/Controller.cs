@@ -107,6 +107,15 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""be0dada2-74d0-4377-8d64-7467905dd106"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -459,6 +468,28 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
                     ""action"": ""Flame Hold"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6f5711c7-5c80-470d-8ae7-70b705a5451f"",
+                    ""path"": ""<Keyboard>/t"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dd5581e0-46f3-415d-a276-06c9ad29d992"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1055,6 +1086,7 @@ public partial class @Controller: IInputActionCollection2, IDisposable
         m_Player_SunMask = m_Player.FindAction("Sun Mask", throwIfNotFound: true);
         m_Player_LeafMask = m_Player.FindAction("Leaf Mask", throwIfNotFound: true);
         m_Player_FlameHold = m_Player.FindAction("Flame Hold", throwIfNotFound: true);
+        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1143,6 +1175,7 @@ public partial class @Controller: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_SunMask;
     private readonly InputAction m_Player_LeafMask;
     private readonly InputAction m_Player_FlameHold;
+    private readonly InputAction m_Player_Pause;
     public struct PlayerActions
     {
         private @Controller m_Wrapper;
@@ -1156,6 +1189,7 @@ public partial class @Controller: IInputActionCollection2, IDisposable
         public InputAction @SunMask => m_Wrapper.m_Player_SunMask;
         public InputAction @LeafMask => m_Wrapper.m_Player_LeafMask;
         public InputAction @FlameHold => m_Wrapper.m_Player_FlameHold;
+        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1192,6 +1226,9 @@ public partial class @Controller: IInputActionCollection2, IDisposable
             @FlameHold.started += instance.OnFlameHold;
             @FlameHold.performed += instance.OnFlameHold;
             @FlameHold.canceled += instance.OnFlameHold;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1223,6 +1260,9 @@ public partial class @Controller: IInputActionCollection2, IDisposable
             @FlameHold.started -= instance.OnFlameHold;
             @FlameHold.performed -= instance.OnFlameHold;
             @FlameHold.canceled -= instance.OnFlameHold;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1414,6 +1454,7 @@ public partial class @Controller: IInputActionCollection2, IDisposable
         void OnSunMask(InputAction.CallbackContext context);
         void OnLeafMask(InputAction.CallbackContext context);
         void OnFlameHold(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

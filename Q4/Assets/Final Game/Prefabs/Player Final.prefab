@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 7010416463618127295}
   - component: {fileID: 7758677943115597072}
   - component: {fileID: 6766175304845734233}
+  - component: {fileID: 2239931096455126268}
   m_Layer: 0
   m_Name: Player Final
   m_TagString: Untagged
@@ -42,6 +43,7 @@ Transform:
   m_Children:
   - {fileID: 2390780111222636509}
   - {fileID: 83103557147436897}
+  - {fileID: 1220362679425976212}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4804636306197724064
@@ -361,6 +363,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: fe12285a-77e9-45be-9fde-f8aff8ce3b3e
     m_ActionName: 'Player/Flame Hold[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2239931096455126268}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: ClickPause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: be0dada2-74d0-4377-8d64-7467905dd106
+    m_ActionName: 'Player/Pause[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -458,6 +476,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerReach: 5
+--- !u!114 &2239931096455126268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3595420661653511912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6ee93cb79e95c347b1a97a8d3cf64e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PausePanel: {fileID: 3735032956875752951}
 --- !u!1 &6725125986032675701
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,3 +721,83 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: c8e6441aa9ff2344f8fbb08a801f1ad4, type: 2}
+--- !u!1001 &3858699749901769133
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2136330467787755891}
+    m_Modifications:
+    - target: {fileID: 2694071349250154041, guid: 4f2255d6db851c24b9ae05a632df4945,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 501.99487
+      objectReference: {fileID: 0}
+    - target: {fileID: 2694071349250154041, guid: 4f2255d6db851c24b9ae05a632df4945,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 157.81467
+      objectReference: {fileID: 0}
+    - target: {fileID: 2694071349250154041, guid: 4f2255d6db851c24b9ae05a632df4945,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 275.54926
+      objectReference: {fileID: 0}
+    - target: {fileID: 2694071349250154041, guid: 4f2255d6db851c24b9ae05a632df4945,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2694071349250154041, guid: 4f2255d6db851c24b9ae05a632df4945,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2694071349250154041, guid: 4f2255d6db851c24b9ae05a632df4945,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2694071349250154041, guid: 4f2255d6db851c24b9ae05a632df4945,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2694071349250154041, guid: 4f2255d6db851c24b9ae05a632df4945,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2694071349250154041, guid: 4f2255d6db851c24b9ae05a632df4945,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2694071349250154041, guid: 4f2255d6db851c24b9ae05a632df4945,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5413561060171137188, guid: 4f2255d6db851c24b9ae05a632df4945,
+        type: 3}
+      propertyPath: m_Name
+      value: Pause Menu Set
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4f2255d6db851c24b9ae05a632df4945, type: 3}
+--- !u!4 &1220362679425976212 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2694071349250154041, guid: 4f2255d6db851c24b9ae05a632df4945,
+    type: 3}
+  m_PrefabInstance: {fileID: 3858699749901769133}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3735032956875752951 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 457496158361377882, guid: 4f2255d6db851c24b9ae05a632df4945,
+    type: 3}
+  m_PrefabInstance: {fileID: 3858699749901769133}
+  m_PrefabAsset: {fileID: 0}
