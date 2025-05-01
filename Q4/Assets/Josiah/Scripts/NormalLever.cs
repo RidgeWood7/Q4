@@ -23,10 +23,10 @@ public class NormalLever : MonoBehaviour
 
         isFlipping = true;
 
+        leverInteract.Invoke();
+
         yield return new WaitForSeconds(1);
 
         isFlipping = false;
-
-        leverInteract.Invoke();
     }
 }
